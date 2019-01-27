@@ -10,8 +10,8 @@ CORS(app)
 access = None
 
 client = smartcar.AuthClient(
-    client_id='8eca448e-03f2-488f-98b1-31776e6c8662',
-    client_secret='03206382-8351-429d-9f31-4ece3ce3c407',
+    client_id='',
+    client_secret='',
     redirect_uri='http://localhost:80/exchange',
     scope=['read_vehicle_info'],
     test_mode=True
