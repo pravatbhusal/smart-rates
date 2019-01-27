@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/Shadowsych/smart-rates/master/rsrc/icon_text.png" width="250" height="175" />
+
 # Smart Rates
 A mobile and web-application that analyzes the market value of a car using the Smart Car API.
 
