@@ -10,8 +10,8 @@ CORS(app)
 access = None
 
 client = smartcar.AuthClient(
-    client_id='',
-    client_secret='',
+    client_id='8eca448e-03f2-488f-98b1-31776e6c8662',
+    client_secret='03206382-8351-429d-9f31-4ece3ce3c407',
     redirect_uri='http://localhost:80/exchange',
     scope=['read_vehicle_info'],
     test_mode=True
@@ -54,10 +54,11 @@ def vehicles():
     for vehicle in vehicle_ids:
         vehicle_obj = smartcar.Vehicle(vehicle, access['access_token'])
         info = vehicle_obj.info()
-        # vehicles[len(vehicles)] = get_car_info(
-        # info["make"], info["model"], str(info["year"]), length=5)
+        vehicles[len(vehicles)] = get_car_info(
+            info["make"], info["model"], str(info["year"]), length=5)
 
     return jsonify(vehicles)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)

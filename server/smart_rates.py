@@ -5,7 +5,7 @@ import json
 # return the first "length" cars using its make, model, and year information
 def get_car_info(make, model, year, length):
     # market check's API service
-    api_key = ''
+    api_key = 'TGy5NXA78OSIFwcaeArlPVqJbteyjWdq'
     info_api = 'http://api.marketcheck.com/v1/search?api_key=' + api_key + \
                '&year=' + year + '&make=' + make + '&model=' + model + '&car_type=used'
     headers = {

@@ -49,15 +49,17 @@
           priceCount++;
         }
         // push this car model's data set
-        color = "#"+((1<<24)*Math.random()|0).toString(16)
-        dataSets.push({
-          data: prices,
-          label: model[0]["name"],
-          borderColor: color,
-          fill: false
-        });
-        colors.push(color);
-        averagePrices.push(parseInt(totalPrice / priceCount));
+        if(model != undefined) {
+          color = "#"+((1<<24)*Math.random()|0).toString(16)
+          dataSets.push({
+            data: prices,
+            label: model[0]["name"],
+            borderColor: color,
+            fill: false
+          });
+          colors.push(color);
+          averagePrices.push(parseInt(totalPrice / priceCount));
+        }
       }
 
       // create a line graph
@@ -79,7 +81,9 @@
       labels = [];
       for(var carModel = 0; carModel < Object.keys(data).length; carModel++) {
         var model = data[carModel];
-        labels.push(model[0]["name"])
+        if(model != undefined) {
+          labels.push(model[0]["name"]);
+        }
       }
 
       // create a pie chart
@@ -106,7 +110,13 @@
     // set the cars and their data properties onto the graphs
     async function setCars() {
       var serverURL = "http://localhost";
-      fetch(serverURL + "/vehicles").then((resolved) => {
+      fetch(serverURL + "/vehicles",
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      }).then((resolved) => {
       resolved.json().then((data) => {
         // load the data
         setCharts(data);
